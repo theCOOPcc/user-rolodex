@@ -1,0 +1,80 @@
+enum Participation {
+    GroupMentoring
+    SprintReleaseObserver
+    CodeReview
+    OneOnOne
+}
+
+enum Day {
+    Monday
+    Tuesday
+    Wednesday
+    Thursday
+    Friday
+    Saturday
+    Sunday
+}
+
+enum Time {
+    Morning
+    Afternoon
+    Evening
+}
+
+enum Frequency {
+    BiWeekly
+    Monthly
+    AtWill
+}
+
+type Availability {
+    day: [Day]!
+    time: [Time]!
+    frequency: [Frequency]!
+}
+
+type Engineer {
+    userId: ID!
+    name: String!
+    availability: [Availability]!
+    technologiesInterested: [String]
+    technologiesKnown: [String]
+    connection: String!
+    portfolio: String
+}
+
+type Designer {
+    userId: ID!
+    name: String!
+    availability: [Availability]!
+    skills: [String!]
+    technologiesKnown: [String]
+    focus: String!
+    connection: String!
+}
+
+type Mentor {
+    userId: ID!
+    participation: [Participation]!
+    availability: [Availability]!
+}
+
+type Mutation {
+  mergeBusinessCategory(categories: [String!]!, businessId: ID!): Business
+    @cypher(
+      statement: "MATCH (b:Business {businessId: $businessId}) UNWIND $categories AS cat MERGE (c:Category {name: cat}) MERGE (b)-[:IN_CATEGORY]->(c) RETURN b"
+    )
+}
+
+type Query {
+  engineers: [Engineer]
+  
+}
+
+type Query {
+  userCount: Int! @cypher(statement: "MATCH (u:User) RETURN COUNT(u)")
+  ratingsCount: [RatingCount]
+    @cypher(
+      statement: "MATCH (r:Review) WITH r.stars AS stars, COUNT(*) AS count ORDER BY stars RETURN {stars: stars, count: count}"
+    )
+}
