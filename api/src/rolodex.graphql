@@ -37,9 +37,9 @@ type Engineer {
     userId: ID!
     name: String!
     availability: [Availability]!
-    technologiesInterested: [String]
-    technologiesKnown: [String]
     connection: String!
+    technologiesKnown: [String]
+    technologiesInterested: [String]
     portfolio: String
 }
 
@@ -47,10 +47,10 @@ type Designer {
     userId: ID!
     name: String!
     availability: [Availability]!
-    skills: [String!]
-    technologiesKnown: [String]
-    focus: String!
     connection: String!
+    technologiesKnown: [String]
+    skills: [String!]
+    focus: String!
 }
 
 type Mentor {
@@ -64,17 +64,13 @@ type Mutation {
     @cypher(
       statement: "MATCH (b:Business {businessId: $businessId}) UNWIND $categories AS cat MERGE (c:Category {name: cat}) MERGE (b)-[:IN_CATEGORY]->(c) RETURN b"
     )
+    newEngineer
+    newDesigner
+    newMentor
 }
 
 type Query {
   engineers: [Engineer]
-  
-}
-
-type Query {
-  userCount: Int! @cypher(statement: "MATCH (u:User) RETURN COUNT(u)")
-  ratingsCount: [RatingCount]
-    @cypher(
-      statement: "MATCH (r:Review) WITH r.stars AS stars, COUNT(*) AS count ORDER BY stars RETURN {stars: stars, count: count}"
-    )
+  designers: [Designer]
+  mentors: [Mentor]
 }
