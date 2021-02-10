@@ -33,37 +33,34 @@ type Availability {
     frequency: [Frequency]!
 }
 
-type Engineer {
+enum Role {
+    designer
+    engineer
+    dataScientist
+}
+
+type Participant {
+    role: Role!
     userId: ID!
     name: String!
+    email: String!
     availability: [Availability]!
     connection: String!
     technologiesKnown: [String]
     technologiesInterested: [String]
-    portfolio: String
-}
-
-type Designer {
-    userId: ID!
-    name: String!
-    availability: [Availability]!
-    connection: String!
-    technologiesKnown: [String]
     skills: [String!]
     focus: String!
+    portfolio: String
 }
 
 type Mentor {
     userId: ID!
+    email: String!
     participation: [Participation]!
     availability: [Availability]!
 }
 
 type Mutation {
-  mergeBusinessCategory(categories: [String!]!, businessId: ID!): Business
-    @cypher(
-      statement: "MATCH (b:Business {businessId: $businessId}) UNWIND $categories AS cat MERGE (c:Category {name: cat}) MERGE (b)-[:IN_CATEGORY]->(c) RETURN b"
-    )
     newEngineer
     newDesigner
     newMentor
