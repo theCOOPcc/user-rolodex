@@ -12,8 +12,8 @@ export const typeDefs = fs
     process.env.GRAPHQL_SCHEMA ||
       path.join(
         __dirname,
-        'schema.graphql'
-        // 'rolodex.graphql'
+        // 'schema.graphql'
+        'rolodex.graphql'
       )
   )
   .toString('utf-8')

@@ -59,15 +59,3 @@ type Mentor {
     participation: [Participation]!
     availability: [Availability]!
 }
-
-type Mutation {
-    newEngineer
-    newDesigner
-    newMentor
-}
-
-type Query {
-  engineers: [Engineer]
-  designers: [Designer]
-  mentors: [Mentor]
-}
