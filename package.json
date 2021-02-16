@@ -31,5 +31,13 @@
       "prettier --write",
       "eslint --fix"
     ]
+  },
+  "dependencies": {
+    "apollo": "^2.32.1",
+    "formik": "^2.2.6",
+    "graphql": "^15.5.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "yup": "^0.32.8"
   }
 }
