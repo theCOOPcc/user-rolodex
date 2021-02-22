@@ -1,13 +1,13 @@
 import React from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
-import * as Fields from './userFields'
+import * as Fields from './mentorFields'
 import * as Inputs from '../../components/inputs'
 
-const UserForm = () => {
+const MentorForm = () => {
   return (
     <>
-      <h1>New User</h1>
+      <h1>New Mentor</h1>
       <Formik
         initialValues={{
           firstName: '',
@@ -17,6 +17,8 @@ const UserForm = () => {
           engineeringSkills: '',
           designSkills: '',
           designAbilities: '',
+          availability: '',
+          participation: '',
           acceptedTerms: false,
         }}
         validationSchema={Yup.object({
@@ -77,4 +79,4 @@ const UserForm = () => {
   )
 }
 
-export default UserForm
+export default MentorForm

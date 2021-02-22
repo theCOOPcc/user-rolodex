@@ -68,6 +68,23 @@ export const myDesignSkills = {
   ],
 }
 
+export const participation = {
+  name: 'How can you contribute?',
+  value: 'participation',
+  selections: [
+    'Group mentoring',
+    'Sprint release observation',
+    'Code reviews',
+    'One-to-one',
+  ],
+}
+
+export const availabilty = {
+  name: 'When are you available?',
+  value: 'availability',
+  selections: ['Semi-weekly', 'Monthly', 'At Will'],
+}
+
 export const howDidYouHearAboutUs = {
   name: 'How did you hear about us?',
   value: 'howDidYouHearAboutUs',
@@ -80,5 +97,7 @@ export const projectFields = [
   engineeringTechnologies,
   designSkills,
   myDesignSkills,
+  participation,
+  availabilty,
   howDidYouHearAboutUs,
 ]
