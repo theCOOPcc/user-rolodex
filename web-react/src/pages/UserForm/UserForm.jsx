@@ -1,54 +1,25 @@
 import React from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
-import * as Fields from './projectFields'
+import * as Fields from './userFields'
 import * as Inputs from '../../components/inputs'
-import './styles.css'
 
-const ProjectForm = () => {
-  // TODO: This is eventually going to dynamically fill the initialValues with the names of the fields and an empty string that gets taken from the inputs.js
-  // function formValues() {
-  //   let arr = []
-  //   Fields.projectFields.forEach((field) => {
-  //     const object = {}
-  //     Object.defineProperty(object, `${field.name}`, {
-  //       value: ' ',
-  //       writable: true,
-  //     })
-  //     arr.push(
-  //       object
-  //       // (`${field.name}: ""`)
-  //     )
-  //   })
-  //   return arr
-  // }
-  // const initValues = formValues()
-
+const UserForm = () => {
   return (
     <>
-      <h1>Create a Project</h1>
+      <h1>New User</h1>
       <Formik
         initialValues={{
-          name: '',
-          description: '',
-          objectives: '',
-          targetAudiences: '',
+          firstName: '',
+          lastName: '',
           roles: '',
-          successCriteria: '',
-          implementations: '',
-          scopes: '',
-          scopeTiming: '',
-          Timings: '',
           engineeringSkills: '',
           designAbilities: '',
-          dependencies: '',
-          risks: '',
           acceptedTerms: false,
         }}
         validationSchema={Yup.object({
-          name: Yup.string()
-            .max(15, 'Must be 15 characters or less')
-            .required('Required'),
+          firstName: Yup.string().required('Required'),
+          lastName: Yup.string().required('Required'),
           acceptedTerms: Yup.boolean()
             .required('Required')
             .oneOf([true], 'Check the box to confirm Project creation.'),
@@ -68,10 +39,17 @@ const ProjectForm = () => {
       >
         <Form>
           <Inputs.MyTextInput
-            label="Project Name"
-            name="name"
+            label="First Name"
+            name="firstName"
             type="text"
-            placeholder="User Rolodex"
+            placeholder="Cory"
+          />
+
+          <Inputs.MyTextInput
+            label="Last Name"
+            name="lastName"
+            type="text"
+            placeholder="Spicer"
           />
 
           {Fields.projectFields.map((f) => (
@@ -86,7 +64,7 @@ const ProjectForm = () => {
           ))}
 
           <Inputs.MyCheckBox name="acceptedTerms">
-            I am ready to create my new project.
+            I am ready to sign up.
           </Inputs.MyCheckBox>
 
           <button type="submit">Submit</button>
@@ -96,4 +74,4 @@ const ProjectForm = () => {
   )
 }
 
-export default ProjectForm
+export default UserForm
