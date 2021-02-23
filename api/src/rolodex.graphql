@@ -22,7 +22,7 @@ enum Time {
 }
 
 enum Frequency {
-    Semi-Weekly
+    SemiWeekly
     Monthly
     AtWill
 }
