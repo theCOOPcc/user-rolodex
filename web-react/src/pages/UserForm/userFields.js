@@ -1,7 +1,13 @@
 export const roles = {
-  name: 'Roles',
+  name: 'Role',
   value: 'roles',
   selections: ['Engineer', 'Designer', 'Data Scientist'],
+}
+
+export const toLearn = {
+  name: 'What would you like to learn more about?',
+  value: 'toLearn',
+  selections: ['Engineering', 'UX/UI Design', 'Modeling'],
 }
 
 export const engineeringSkills = {
@@ -40,7 +46,7 @@ export const engineeringTechnologies = {
   ],
 }
 
-export const designSkills = {
+export const designAbilities = {
   name: 'Design Abilities',
   value: 'designAbilities',
   selections: [
@@ -53,7 +59,7 @@ export const designSkills = {
   ],
 }
 
-export const myDesignSkills = {
+export const designSkills = {
   name: 'Design Skills',
   value: 'designSkills',
   selections: [
@@ -68,7 +74,7 @@ export const myDesignSkills = {
   ],
 }
 
-export const howDidYouHearAboutUs = {
+export const connection = {
   name: 'How did you hear about us?',
   value: 'howDidYouHearAboutUs',
   selections: ['Referral', 'LinkedIn', 'Website'],
@@ -76,9 +82,10 @@ export const howDidYouHearAboutUs = {
 
 export const projectFields = [
   roles,
+  toLearn,
   engineeringSkills,
   engineeringTechnologies,
+  designAbilities,
   designSkills,
-  myDesignSkills,
-  howDidYouHearAboutUs,
+  connection,
 ]

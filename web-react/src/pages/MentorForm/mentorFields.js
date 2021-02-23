@@ -1,5 +1,5 @@
 export const roles = {
-  name: 'Roles',
+  name: 'Role',
   value: 'roles',
   selections: ['Engineer', 'Designer', 'Data Scientist'],
 }
@@ -85,9 +85,9 @@ export const availabilty = {
   selections: ['Semi-weekly', 'Monthly', 'At Will'],
 }
 
-export const howDidYouHearAboutUs = {
+export const connection = {
   name: 'How did you hear about us?',
-  value: 'howDidYouHearAboutUs',
+  value: 'connection',
   selections: ['Referral', 'LinkedIn', 'Website'],
 }
 
@@ -99,5 +99,5 @@ export const projectFields = [
   myDesignSkills,
   participation,
   availabilty,
-  howDidYouHearAboutUs,
+  connection,
 ]

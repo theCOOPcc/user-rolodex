@@ -44,12 +44,6 @@ export const targetAudiences = {
   ],
 }
 
-export const roles = {
-  name: 'Roles',
-  value: 'roles',
-  selections: ['Engineer', 'Designer', 'Data Scientist', 'Mentor'],
-}
-
 export const successCriteria = {
   name: 'Success Criteria',
   value: 'successCriteria',
@@ -140,7 +134,7 @@ export const engineeringTechnologies = {
   ],
 }
 
-export const designSkills = {
+export const designAbilities = {
   name: 'Design Abilities',
   value: 'designAbilities',
   selections: [
@@ -153,7 +147,7 @@ export const designSkills = {
   ],
 }
 
-export const myDesignSkills = {
+export const designSkills = {
   name: 'Design Skills',
   value: 'designSkills',
   selections: [
@@ -192,7 +186,6 @@ export const projectFields = [
   descriptions,
   objectives,
   targetAudiences,
-  roles,
   successCriteria,
   implementations,
   scopes,
@@ -200,8 +193,8 @@ export const projectFields = [
   timings,
   engineeringSkills,
   engineeringTechnologies,
+  designAbilities,
   designSkills,
-  myDesignSkills,
   dependencies,
   risks,
 ]

@@ -22,7 +22,7 @@ enum Time {
 }
 
 enum Frequency {
-    BiWeekly
+    Semi-Weekly
     Monthly
     AtWill
 }
@@ -40,22 +40,53 @@ enum Role {
 }
 
 type Participant {
-    role: Role!
     userId: ID!
-    name: String!
+    role: Role!
+    firstName: String!
+    lastName: String!
     email: String!
-    availability: [Availability]!
-    connection: String!
-    technologiesKnown: [String]
-    technologiesInterested: [String]
-    skills: [String!]
-    focus: String!
+    availability: [Availability]
+    engineeringSkills: [String]
+    engineeringTechnologies: [String]
+    designSkills: [String]
+    myDesignSkills: [String]
+    toLearn: String
     portfolio: String
+    connection: String!
 }
 
 type Mentor {
     userId: ID!
+    firstName: String!
+    lastName: String!
     email: String!
+    role: Role!
+    engineeringSkills: String
+    engineeringTechnologies: String
+    designSkills: String
+    myDesignSkills: String
     participation: [Participation]!
     availability: [Availability]!
+    connection: String
+}
+
+type Project {
+    projectId: ID!
+    name: String!
+    createdBy: String
+    descriptions: String
+    objectives: String
+    targetAudiences: String
+    successCriteria: String
+    implementations: String
+    scopes: String
+    scopeTiming: String
+    deliverables: String
+    timings: String
+    engineeringSkills: String
+    engineeringTechnologies: String
+    designAbilities: String
+    designSkills: String
+    dependencies: String
+    risks: String
 }
