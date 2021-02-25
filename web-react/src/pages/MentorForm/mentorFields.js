@@ -53,9 +53,9 @@ export const designSkills = {
   ],
 }
 
-export const myDesignSkills = {
-  name: 'Design Skills',
-  value: 'designSkills',
+export const designAbilities = {
+  name: 'Design Abilities',
+  value: 'designAbilities',
   selections: [
     'Clickable Prototyping',
     'Interactive Prototyping',
@@ -96,7 +96,7 @@ export const projectFields = [
   engineeringSkills,
   engineeringTechnologies,
   designSkills,
-  myDesignSkills,
+  designAbilities,
   participation,
   availabilty,
   connection,

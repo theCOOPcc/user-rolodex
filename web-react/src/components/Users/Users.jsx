@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import { ApolloConsumer } from 'react-apollo'
+import { ApolloConsumer } from 'react-apollo'
 import gql from 'graphql-tag'
 
 class Users extends Component {
@@ -10,22 +10,37 @@ class Users extends Component {
   }
 
   async loadData(client) {
-    const engineers = await client.query({
+    const participant = await client.query({
       query: gql`
         {
-          engineers {
-            name
+          Participant(email: "leo@bardo.com") {
+            firstName
+            email
           }
         }
       `,
     })
-    this.setState({ engineers })
+    this.setState({
+      participant: participant.data,
+      loading: participant.loading,
+    })
   }
 
   render() {
+    if (this.state.loading) {
+      return <div>Loading</div>
+    }
     return (
       <>
-        <p>{this.state.users.name}</p>
+        {this.state.participant ? (
+          <div>{this.state.participant.Participant[0].email}</div>
+        ) : (
+          <ApolloConsumer>
+            {(client) => (
+              <button onClick={() => this.loadData(client)}>Query Leo</button>
+            )}
+          </ApolloConsumer>
+        )}
       </>
     )
   }

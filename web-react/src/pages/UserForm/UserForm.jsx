@@ -14,9 +14,12 @@ const UserForm = () => {
           lastName: '',
           email: '',
           roles: '',
+          toLearn: '',
           engineeringSkills: '',
+          engineeringTechnologies: '',
           designSkills: '',
           designAbilities: '',
+          connection: '',
           acceptedTerms: false,
         }}
         validationSchema={Yup.object({
